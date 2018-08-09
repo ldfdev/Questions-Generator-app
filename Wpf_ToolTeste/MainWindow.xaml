@@ -1,0 +1,56 @@
+﻿<Window x:Class="Wpf_ToolTeste.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:Wpf_ToolTeste"
+    mc:Ignorable="d"
+    Title="Interview Test Generator" Height="500" Width="700">
+    <Window.Resources>
+        <Style x:Key="StyleOfButtons" TargetType="Button">
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="26" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+        <Style TargetType="ListBox">
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Background" Value="#FFF1E4E4"/>
+            <Setter Property="MinWidth" Value="110"/>
+            <Setter Property="Height" Value="60"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="5,5">
+        
+        <Menu MinHeight="30" MinWidth="200" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="BlueViolet">
+            <MenuItem Header="File" Foreground="White" FontWeight="Bold">
+                <MenuItem Header="Save as" Background="BlueViolet" Click="Save"/>
+            </MenuItem>
+            <MenuItem Header="Modify Database" Foreground="White" FontWeight="Bold" >
+                <MenuItem Header="Insert" Background="BlueViolet" Click="MenuItem_Click">
+                    <MenuItem.ToolTip>
+                        <ToolTip>
+                            Insert One Element At a Time
+                        </ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <Button x:Name="GenerateButton" Style="{StaticResource StyleOfButtons}" Content="Generate"  Margin="353,100,0,0" Click="GenerateButton_Click"/>
+        <Button x:Name="InsertButton" Style="{StaticResource StyleOfButtons}" Content="Insert"  Margin="460,100,0,0" Click="InsertButton_Click"/>
+        <Button x:Name="ShowDbButton" Style="{StaticResource StyleOfButtons}" Content="ShowDB"  Margin="567,100,0,0" Click="ShowDbButton_Click"/>
+        <Label Content="Domain" HorizontalAlignment="Left" Margin="0,23,0,0" VerticalAlignment="Top" Width="60" FontWeight="Bold"/>
+        <Label Content="Difficulty" HorizontalAlignment="Left" Margin="276,23,0,0" VerticalAlignment="Top" Width="66" Height="26" FontWeight="Bold"/>
+        <Label Content="# Items" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" Width="51" FontWeight="Bold"/>
+        <TextBox x:Name="Items" HorizontalAlignment="Left" Height="25" Margin="75,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110"/>
+        <ListBox x:Name="ListBox2" Margin="353,23,0,0" SelectionChanged="ListBox2_SelectionChanged"/>
+        <ListBox x:Name="ListBox1" Margin="75,23,0,0" SelectionChanged="ListBox1_SelectionChanged"/>
+        <ScrollViewer  VerticalScrollBarVisibility="Auto" Margin="75,140,75,0">
+            <TextBox x:Name="TextBlock1" AcceptsReturn="True" IsReadOnly="True" TextWrapping="Wrap" FontSize="11" FontFamily="Comic Sans Serif"/>
+            <!--<TextBlock x:Name="TextBlock" HorizontalAlignment="Stretch"  TextWrapping="Wrap" Padding="5" Background="#FFF1E4E4" MinHeight="150" InputMethod.IsInputMethodEnabled="True"/>-->
+        </ScrollViewer>
+    </Grid>
+</Window>

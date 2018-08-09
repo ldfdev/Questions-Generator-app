@@ -1,0 +1,35 @@
+﻿<Window x:Class="Wpf_ToolTeste.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf_ToolTeste"
+        mc:Ignorable="d"
+        Title="Insert Into Database" Height="600" Width="300">
+    <Grid>
+        <Button Name="generate" Height="20" MinWidth="100" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5,5" Background="BlueViolet" Click="generate_Click">
+            <Button.ToolTip>
+                <ToolTip>
+                    Press to open file to scan databases
+                </ToolTip>
+            </Button.ToolTip>
+        </Button>
+        <ScrollViewer  VerticalScrollBarVisibility="Auto" Margin="30,60,30,10">
+            <DataGrid AutoGenerateColumns="False" Name="PartsDataGrid"
+               ItemsSource="{Binding}">
+                <!--SelectedItem="{Binding CurrentPart, Mode=TwoWay}"-->  
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Domain" CanUserReorder="True" CanUserResize="True" 
+                             CanUserSort="True" Width="Auto" 
+                             Binding="{Binding domain}" />
+                    <DataGridTextColumn Header="Difficulty" CanUserReorder="True" CanUserResize="True" 
+                             CanUserSort="True" Width="Auto" 
+                             Binding="{Binding difficulty}" />
+                    <DataGridTextColumn Header="Text" CanUserReorder="True" CanUserResize="True" 
+                             CanUserSort="True" Width="Auto" 
+                             Binding="{Binding text}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+    </Grid>
+</Window>
